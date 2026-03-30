@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 54dd4e68-8394-45db-90fb-2653bfaf35ca
+name: CUSTOMERS
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: aebd4d25-8a73-4afb-94bc-b2a68f11a13e
+          stepCounter: 54dd4e68-8394-45db-90fb-2653bfaf35ca
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28cbcd94-3f5c-4af0-9fda-b6884fb3b8a1
+          stepCounter: 54dd4e68-8394-45db-90fb-2653bfaf35ca
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LAST_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f9b6360-b959-41ea-b7e7-0297663941ac
+          stepCounter: 54dd4e68-8394-45db-90fb-2653bfaf35ca
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EMAIL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 088f6cd9-f83a-4322-8e1e-259d9241696b
+          stepCounter: 54dd4e68-8394-45db-90fb-2653bfaf35ca
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: EXTRACT_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d051062-8ec2-4934-923a-bbef86c44826
+          stepCounter: 54dd4e68-8394-45db-90fb-2653bfaf35ca
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SRC_CUST_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: CUSTOMERS
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

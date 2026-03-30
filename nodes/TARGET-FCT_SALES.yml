@@ -1,0 +1,131 @@
+fileVersion: 1
+id: cd2b9a7e-d417-49de-873a-f8202918c729
+name: FCT_SALES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d3e68-db2f-76d2-b941-a30164e70867
+          stepCounter: cd2b9a7e-d417-49de-873a-f8202918c729
+        config: {}
+        dataType: INT
+        description: ""
+        name: SALES_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 777c23d3-06e3-4ac3-9f93-9de7f52c17d3
+                stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+            transform: ROW_NUMBER() OVER (ORDER BY STG_ORDERS.SRC_ORDER_ID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d3e67-592d-75ae-9d4b-98e77d13be93
+          stepCounter: cd2b9a7e-d417-49de-873a-f8202918c729
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e850d7b7-828e-48f9-b4f4-ad3debf7c1a7
+                stepCounter: f5b3d931-4572-4f42-8a4e-dd1b0d8f9dff
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00719a78-7950-4d65-988f-3f4dc8a9b79f
+          stepCounter: cd2b9a7e-d417-49de-873a-f8202918c729
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ORDER_DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b26a0e7f-9a66-4405-8d04-fe42efc0583f
+                stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4511cff-e4e1-4689-8192-490a0ab56ac5
+          stepCounter: cd2b9a7e-d417-49de-873a-f8202918c729
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 777c23d3-06e3-4ac3-9f93-9de7f52c17d3
+                stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7313e04-b325-45d7-b755-0e9bf6ef3eeb
+          stepCounter: cd2b9a7e-d417-49de-873a-f8202918c729
+        config: {}
+        dataType: DECIMAL(18,2)
+        description: ""
+        name: NET_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a79ae162-1c5e-4c20-b1b0-0c25b522d1b9
+                stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91c47c4d-6ac8-433e-868d-2aba5cbfd8c5
+          stepCounter: cd2b9a7e-d417-49de-873a-f8202918c729
+        config: {}
+        dataType: DATETIME
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: LOAD TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          DIM_CUSTOMERS: f5b3d931-4572-4f42-8a4e-dd1b0d8f9dff
+          STG_ORDERS: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: DIM_CUSTOMERS
+          - locationName: TARGET
+            nodeName: STG_ORDERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'STG_ORDERS') }} STG_ORDERS
+            INNER JOIN {{ ref('TARGET', 'DIM_CUSTOMERS') }} DIM_CUSTOMERS
+              ON STG_ORDERS.CUST_ID = DIM_CUSTOMERS.CUSTOMER_ID
+        name: FCT_SALES
+        noLinkRefs: []
+  name: FCT_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

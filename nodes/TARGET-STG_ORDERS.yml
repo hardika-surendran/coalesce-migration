@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+name: STG_ORDERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 777c23d3-06e3-4ac3-9f93-9de7f52c17d3
+          stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SRC_ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7c8935a-4ec6-4c8c-9e30-24121c11033d
+                stepCounter: 97576dc0-54f2-4da8-b637-81675be582dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1018999-cfcd-443e-a9c4-40d235d988e1
+          stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dd83bd7e-85e0-409f-ad0e-b55e549a182c
+                stepCounter: 97576dc0-54f2-4da8-b637-81675be582dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b26a0e7f-9a66-4405-8d04-fe42efc0583f
+          stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+        config: {}
+        dataType: DATE
+        description: ""
+        name: ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 57bfd598-46aa-4638-9678-5b98080863e4
+                stepCounter: 97576dc0-54f2-4da8-b637-81675be582dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a79ae162-1c5e-4c20-b1b0-0c25b522d1b9
+          stepCounter: 2e8702bf-4d52-4e4f-8c58-4abf888b96b5
+        config: {}
+        dataType: DECIMAL(18,2)
+        description: ""
+        name: AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 168d7b7e-afad-46de-b0dd-6357e26ea628
+                stepCounter: 97576dc0-54f2-4da8-b637-81675be582dd
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ORDERS: 97576dc0-54f2-4da8-b637-81675be582dd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: ORDERS
+        join:
+          joinCondition: FROM {{ ref('SRC', 'ORDERS') }} "ORDERS"
+        name: STG_ORDERS
+        noLinkRefs: []
+  name: STG_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

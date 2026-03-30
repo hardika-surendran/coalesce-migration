@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "5"
+includeSelector: +{ FCT_SALES}
+name: SALES-PRJ1
+type: Job
